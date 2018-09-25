@@ -25,6 +25,10 @@
     parse-glob "3.0.4"
     promise-retry "1.1.1"
 
+"@sourcegraph/prettierrc@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/@sourcegraph/prettierrc/-/prettierrc-2.2.0.tgz#af4a6fcd465b0a39a07ffbd8f2d3414d01e603e8"
+
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.npmjs.org/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"

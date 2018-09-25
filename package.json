@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@playlyfe/gql": "^2.6.0",
+    "@sourcegraph/prettierrc": "^2.2.0",
     "@types/node": "^10.11.0",
     "@types/ws": "^6.0.1",
     "vscode-ws-jsonrpc": "^0.0.1-alpha.5",
