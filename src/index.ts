@@ -62,6 +62,9 @@ async function definition(doc: TextDocument, pos: Position) {
 function main() {
     const app = express()
     app.use(bodyParser.json())
+    app.get('/ping', (req, res) => {
+        res.send({ pong: 'pong' })
+    })
     app.post(
         '/',
         asyncHandler(async (req, res) => {
