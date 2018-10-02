@@ -3,6 +3,7 @@ import * as fs from 'fs'
 import * as express from 'express'
 import * as asyncHandler from 'express-async-handler'
 import * as bodyParser from 'body-parser'
+import * as cors from 'cors'
 
 interface TextDocument {
     uri: string
@@ -62,6 +63,7 @@ async function definition(doc: TextDocument, pos: Position) {
 function main() {
     const app = express()
     app.use(bodyParser.json())
+    app.use(cors())
     app.get('/ping', (req, res) => {
         res.send({ pong: 'pong' })
     })
