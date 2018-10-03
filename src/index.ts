@@ -85,9 +85,9 @@ function main() {
         '/',
         asyncHandler(async (req, res) => {
             if (req.body.method === 'hover') {
-                res.send(hover(req.body.doc, req.body.pos))
+                res.send(await hover(req.body.doc, req.body.pos))
             } else if (req.body.method === 'definition') {
-                res.send(definition(req.body.doc, req.body.pos))
+                res.send(await definition(req.body.doc, req.body.pos))
             } else {
                 console.log('unknown method ' + req.body.method + ' (expected hover or definition)', req.body)
                 res.send({ error: 'unknown method ' + req.body.method + ' (expected hover or definition)' })
