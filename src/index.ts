@@ -76,7 +76,7 @@ async function definition(doc: TextDocument, pos: Position) {
 
 function main() {
     const app = express()
-    app.use(bodyParser.json())
+    app.use(bodyParser.json({ limit: '10mb' }))
     app.use(cors())
     app.get('/ping', (req, res) => {
         res.send({ pong: 'pong' })
