@@ -28,6 +28,20 @@ async function makeGQLService(text: string): Promise<{ path: string; gqlService:
 
 async function hover(doc: TextDocument, pos: Position) {
     const { path, gqlService } = await makeGQLService(doc.text)
+    console.log(
+        'hover resp for',
+        pos,
+        'doc length',
+        doc.text.length,
+        gqlService.getInfo({
+            sourceText: doc.text,
+            sourcePath: path,
+            position: {
+                line: pos.line + 1,
+                column: pos.character + 1,
+            },
+        })
+    )
     return gqlService.getInfo({
         sourceText: doc.text,
         sourcePath: path,
@@ -75,6 +89,7 @@ function main() {
             } else if (req.body.method === 'definition') {
                 res.send(definition(req.body.doc, req.body.pos))
             } else {
+                console.log('unknown method ' + req.body.method + ' (expected hover or definition)', req.body)
                 res.send({ error: 'unknown method ' + req.body.method + ' (expected hover or definition)' })
             }
         })
