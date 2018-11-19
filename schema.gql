@@ -1,15 +1,28 @@
-# Mutation contains all allowed mutations
+# Man's best friend.
+type Dog {
+    # The dog's name (e.g. Fenrir).
+    name: String!
+    # The dog's breed (e.g. German Shepherd).
+    breed: String!
+}
+
+# The top level query.
+type Query {
+    # Returns all dogs.
+    allDogs: [Dog]
+    # Returns dogs of a particular breed.
+    dogByBreed(breed: String!): [Dog]
+}
+
+# Parameters for adding a dog.
+input addDogInput {
+    # The dog's name.
+    name: String!
+    # The dog's breed.
+    breed: String!
+}
+
 type Mutation {
-  # Player Create contains all allowed mutations
-  PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload
-}
-
-input PlayerCreateInput {
-  id: ID!
-  name: String!
-  role: Role!
-}
-
-type PlayerCreatePayload {
-  player: Player!
+    # Adds a dog.
+    addDog(input: addDogInput!): Dog
 }
